@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/android:Theme.Holo.Light.NoActionBar.Fullscreen" >
         <activity
             android:name="com.example.seg3.Main"
             android:label="@string/app_name" >
@@ -21,6 +21,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.seg3.withAppointment"
+            android:label="@string/app_name" >
+        </activity>
+                <activity
+            android:name="com.example.seg3.withoutAppointment"
+            android:label="@string/app_name" >
         </activity>
     </application>
 
