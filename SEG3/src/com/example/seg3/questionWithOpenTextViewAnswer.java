@@ -16,15 +16,28 @@ public class questionWithOpenTextViewAnswer extends LinearLayout{
 	EditText answer;
 	LinearLayout mainLayout;
 	
-	public questionWithOpenTextViewAnswer(Context context) {
+	public questionWithOpenTextViewAnswer(Context context, String questionString,
+			String answerText) {
 		super(context);
-		
+	
+	
 	}
 
-	public View inflator(View view, String questionText, String answer){
+	public View inflator(String questionText, String answer){
+		
 		questionWithOpenTextAnswer = LayoutInflater.from(getContext());
-		return inflatedView = questionWithOpenTextAnswer.inflate(R.layout.question_with_open_text_answer_layout, 
+		
+		inflatedView = questionWithOpenTextAnswer.inflate(
+				R.layout.question_with_open_text_answer_layout, 
 				mainLayout,false);
+		
+		TextView textView0 = (TextView) inflatedView.findViewById(R.id.textViewForInflation);
+		textView0.setText(questionText);
+		
+		EditText editText0 = (EditText) inflatedView.findViewById(R.id.editTextForInflation);
+		editText0.setText(answer);
+		
+		return inflatedView;
 		
 	}
 }
