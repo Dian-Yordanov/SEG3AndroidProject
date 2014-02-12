@@ -6,16 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
-public class withAppointment extends Activity {
+public class questionary extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.with_appointment);
+        setContentView(R.layout.questionary_layout);
     }
-    public void gotoQuestionaryView(View view) {
-  		Intent i = new Intent(withAppointment.this,questionary.class);
-  		startActivity(i);
-  	}
+    
     
 }
