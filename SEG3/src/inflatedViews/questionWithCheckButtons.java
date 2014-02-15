@@ -11,6 +11,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -18,13 +19,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
-public class questionWithRadioButtons extends LinearLayout {
-	public static View inflatedViewRadioButtons;
+public class questionWithCheckButtons extends LinearLayout {
+	public static View inflatedViewCheckBox;
 	public static LayoutInflater questionWithRadioButtonsAnswers;
 	TextView question;
 	public static LinearLayout mainLayout;
 
-	public questionWithRadioButtons(Context context, String questionString,
+	public questionWithCheckButtons(Context context, String questionString,
 			String[] radioButtonQuestions) {
 		super(context);
 	}
@@ -35,26 +36,25 @@ public class questionWithRadioButtons extends LinearLayout {
 		questionWithRadioButtonsAnswers = LayoutInflater.from(getContext());
 
 		
-		inflatedViewRadioButtons = questionWithRadioButtonsAnswers.inflate(
-				R.layout.question_with_open_radio_buttons_layout, mainLayout,
+		inflatedViewCheckBox = questionWithRadioButtonsAnswers.inflate(
+				R.layout.question_with_open_check_buttons_layout, mainLayout,
 				false);
 		
-		RadioGroup rg1 = (RadioGroup) inflatedViewRadioButtons
-				.findViewById(R.id.radioGroup1);
 		
+
 		setQuestionRadioButtons(questionText);
 		
-		rg1.addView(setAnswerRadioButtons(context, radioButtonQuestions));
+		setAnswerCheckButtons(context, radioButtonQuestions);
 
 		
 
-		return inflatedViewRadioButtons;
+		return inflatedViewCheckBox;
 
 	}
 
 	public void setQuestionRadioButtons(String questionText) {
-		TextView textView1 = (TextView) inflatedViewRadioButtons
-				.findViewById(R.id.textView1ForInflation);
+		TextView textView1 = (TextView) inflatedViewCheckBox
+				.findViewById(R.id.textView2ForInflation);
 		textView1.setText(questionText, BufferType.SPANNABLE);
 
 		Spannable s = (Spannable) textView1.getText();
@@ -70,34 +70,34 @@ public class questionWithRadioButtons extends LinearLayout {
 
 	}
 
-	public RadioGroup setAnswerRadioButtons(Context context,
-			String[] radioButtonQuestions) {
-		
-		RadioGroup rg = new RadioGroup(context);
-
+	public void setAnswerCheckButtons(Context context,
+			String[] checkButtonQuestions) {
+	
 		AssetManager mngr = getContext().getAssets();
 		Typeface face = Typeface.createFromAsset(mngr,
 				"fonts/Roboto-Regular.ttf");
 		
+		LinearLayout layoutForCheckBoxInflation = 
+				(LinearLayout) inflatedViewCheckBox
+				.findViewById(R.id.LinearLayoutForCheckBoxes);
 		
 
-		RadioButton[] rb = new RadioButton[radioButtonQuestions.length];
+		CheckBox[] cb = new CheckBox[checkButtonQuestions.length];
 		
 		
-		for (int i = 0; i < radioButtonQuestions.length; i++) {
-			rb[i] = new RadioButton(context);
-			rb[i].setText("this is radioButton" + i, BufferType.SPANNABLE);
+		for (int i = 0; i < checkButtonQuestions.length; i++) {
+			cb[i] = new CheckBox(context);
+			cb[i].setText("this is radioButton" + i, BufferType.SPANNABLE);
 			
-			Spannable s = (Spannable) rb[i].getText();
+			Spannable s = (Spannable) cb[i].getText();
 			ForegroundColorSpan fcs = new ForegroundColorSpan(Color.BLACK);
-			rb[i].setTypeface(face);
+			cb[i].setTypeface(face);
 
-			s.setSpan(fcs, 0, rb[i].getText().length(),
+			s.setSpan(fcs, 0, cb[i].getText().length(),
 					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 			
-			rg.addView(rb[i]);
+			layoutForCheckBoxInflation.addView(cb[i]);
 		}
-		return rg;
 
 	}
 
