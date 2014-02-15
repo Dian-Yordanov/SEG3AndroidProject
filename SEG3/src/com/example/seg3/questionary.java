@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 
 public class questionary extends Activity {
 	private static LinearLayout mainLayout;
+	private static String[] questions = new String[10];
+	
 	private static String questionText ="This is a question";
 	private static String questionAnswer = "This is an answer";
 	private static String[] radioButtonQuestions ={"this is question 1", 
@@ -28,6 +30,21 @@ public class questionary extends Activity {
        
        setQuestions();
 
+    }
+    
+    public void fillQuestions(){
+    	//fillQuestions will take the data about questions. For now it will take it as
+    	//[questionType, questionText, questionAnswers[]]
+    	//the idea is that a question that needs only a EditText as answer should have 
+    	//the following info about it: [open answer,How old are you?]
+    	//this is what the admin will write and he will only need to fill this information 
+    	//about an open answer text. if the question is with radioButtons or with check boxes
+    	//he will need to write for a question with radio boxes :
+    	//[radio boxes, How many vodkas do you drink every week?, less than 2,less than 5, less than 10, more than you can imagine]
+    	//that way you will have a radio box question with 4 options
+    	//the last option is to have check boxes and it will be close to radio boxes, for example:
+    	//[check boxes, which of the following girs have you fucked?, Stacy, Ivana, Hui chan, your mom, your dad]
+    	//some of the lines above may need to be changed before we give the code for evaluation ヽ༼ຈل͜ຈ༽ﾉ   ¯\_(༼ຈل͜ຈ༽)_/¯
     }
     public void setQuestions(){
         setQuestionWithOpenTextView();
