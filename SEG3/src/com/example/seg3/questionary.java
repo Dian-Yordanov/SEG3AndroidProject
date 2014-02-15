@@ -19,8 +19,8 @@ public class questionary extends Activity {
        String questionAnswer = "This is an answer";
        questionWithOpenTextViewAnswer question = 
     		   new questionWithOpenTextViewAnswer(getApplicationContext(),
-    				   questionText, questionAnswer);
-       mainLayout.addView(question.inflator(questionText, questionAnswer));
+    				   questionText);
+       mainLayout.addView(question.inflator(questionText));
     }
     
     
