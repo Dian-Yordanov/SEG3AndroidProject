@@ -1,5 +1,7 @@
 package com.example.seg3;
 
+import inflatedViews.questionWithOpenTextView;
+import inflatedViews.questionWithRadioButtons;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,12 +17,21 @@ public class questionary extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questionary_layout);
        mainLayout = (LinearLayout)findViewById(R.id.LinearLayout1);
+       
        String questionText ="This is a question";
        String questionAnswer = "This is an answer";
-       questionWithOpenTextViewAnswer question = 
-    		   new questionWithOpenTextViewAnswer(getApplicationContext(),
+       String[] radioButtonQuestions ={"this is question 1", 
+    		   "this is question 2", "this is question 3"};
+       
+       questionWithOpenTextView questionTextView = 
+    		   new questionWithOpenTextView(getApplicationContext(),
     				   questionText);
-       mainLayout.addView(question.inflator(questionText));
+       mainLayout.addView(questionTextView.inflator(questionText));
+       
+       questionWithRadioButtons questionRadioButtons = 
+    		   new questionWithRadioButtons(getApplicationContext(),
+    				   questionText, radioButtonQuestions);
+       mainLayout.addView(questionRadioButtons.inflator(questionText, radioButtonQuestions));
     }
     
     

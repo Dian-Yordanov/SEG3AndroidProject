@@ -1,4 +1,8 @@
-package com.example.seg3;
+package inflatedViews;
+
+import com.example.seg3.R;
+import com.example.seg3.R.id;
+import com.example.seg3.R.layout;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -17,64 +21,61 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
-public class questionWithOpenTextViewAnswer extends LinearLayout{
-	
-	public static View inflatedView;
+public class questionWithOpenTextView extends LinearLayout {
+
+	public static View inflatedViewTextView;
 	public static LayoutInflater questionWithOpenTextAnswer;
 	TextView question;
 	EditText answer;
 	LinearLayout mainLayout;
-	
-	public questionWithOpenTextViewAnswer(Context context, String questionString) {
+
+	public questionWithOpenTextView(Context context, String questionString) {
 		super(context);
-	
-	
+
 	}
 
-	public View inflator(String questionText){
-		
+	public View inflator(String questionText) {
+
 		questionWithOpenTextAnswer = LayoutInflater.from(getContext());
-		
-		inflatedView = questionWithOpenTextAnswer.inflate(
-				R.layout.question_with_open_text_answer_layout, 
-				mainLayout,false);
-		
-	
-		
-		setQuestion(questionText);
-		setAnswer();
-		
-		
-		
-		return inflatedView;
-		
+
+		inflatedViewTextView = questionWithOpenTextAnswer.inflate(
+				R.layout.question_with_open_text_answer_layout, mainLayout,
+				false);
+
+		setQuestionTextView(questionText);
+		setAnswerTextView();
+
+		return inflatedViewTextView;
+
 	}
-	
-	public void setQuestion(String questionText){
-		TextView textView0 = (TextView) inflatedView.findViewById(
-				R.id.textViewForInflation);
+
+	public void setQuestionTextView(String questionText) {
+		TextView textView0 = (TextView) inflatedViewTextView
+				.findViewById(R.id.textViewForInflation);
 		textView0.setText(questionText, BufferType.SPANNABLE);
-		
+
 		Spannable s = (Spannable) textView0.getText();
 		ForegroundColorSpan fcs = new ForegroundColorSpan(Color.BLUE);
-				
+
 		AssetManager mngr = getContext().getAssets();
-		Typeface face=Typeface.createFromAsset(mngr,"fonts/Roboto-Regular.ttf");
+		Typeface face = Typeface.createFromAsset(mngr,
+				"fonts/Roboto-Regular.ttf");
 		textView0.setTypeface(face);
-		
+
 		s.setSpan(fcs, 0, questionText.length(),
 				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-		
+
 	}
-	public void setAnswer(){
-		EditText editText0 = (EditText) inflatedView.findViewById(
-				R.id.editTextForInflation);
-		
+
+	public void setAnswerTextView() {
+		EditText editText0 = (EditText) inflatedViewTextView
+				.findViewById(R.id.editTextForInflation);
+
 		AssetManager mngr = getContext().getAssets();
-		Typeface face=Typeface.createFromAsset(mngr,"fonts/Roboto-Regular.ttf");
+		Typeface face = Typeface.createFromAsset(mngr,
+				"fonts/Roboto-Regular.ttf");
 		editText0.setTypeface(face);
 
 	}
-	
-}
 
+}
