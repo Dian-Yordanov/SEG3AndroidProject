@@ -21,30 +21,30 @@ import android.widget.TextView.BufferType;
 
 public class questionWithCheckButtons extends LinearLayout {
 	public static View inflatedViewCheckBox;
-	public static LayoutInflater questionWithRadioButtonsAnswers;
+	public static LayoutInflater questionWithCheckBoxAnswers;
 	TextView question;
 	public static LinearLayout mainLayout;
 
 	public questionWithCheckButtons(Context context, String questionString,
-			String[] radioButtonQuestions) {
+			String[] checkBoxQuestions) {
 		super(context);
 	}
 
 	public View inflator(Context context, String questionText,
-			String[] radioButtonQuestions) {
+			String[] checkBoxQuestions) {
 
-		questionWithRadioButtonsAnswers = LayoutInflater.from(getContext());
+		questionWithCheckBoxAnswers = LayoutInflater.from(getContext());
 
 		
-		inflatedViewCheckBox = questionWithRadioButtonsAnswers.inflate(
+		inflatedViewCheckBox = questionWithCheckBoxAnswers.inflate(
 				R.layout.question_with_open_check_buttons_layout, mainLayout,
 				false);
 		
 		
 
-		setQuestionRadioButtons(questionText);
+		setQuestionCheckBox(questionText);
 		
-		setAnswerCheckButtons(context, radioButtonQuestions);
+		setAnswerCheckButtons(context, checkBoxQuestions);
 
 		
 
@@ -52,7 +52,7 @@ public class questionWithCheckButtons extends LinearLayout {
 
 	}
 
-	public void setQuestionRadioButtons(String questionText) {
+	public void setQuestionCheckBox(String questionText) {
 		TextView textView1 = (TextView) inflatedViewCheckBox
 				.findViewById(R.id.textView2ForInflation);
 		textView1.setText(questionText, BufferType.SPANNABLE);
@@ -87,7 +87,7 @@ public class questionWithCheckButtons extends LinearLayout {
 		
 		for (int i = 0; i < checkButtonQuestions.length; i++) {
 			cb[i] = new CheckBox(context);
-			cb[i].setText("this is radioButton" + i, BufferType.SPANNABLE);
+			cb[i].setText("this is checkBox" + i, BufferType.SPANNABLE);
 			
 			Spannable s = (Spannable) cb[i].getText();
 			ForegroundColorSpan fcs = new ForegroundColorSpan(Color.BLACK);
