@@ -21,7 +21,7 @@ public class questionary extends Activity {
        String questionText ="This is a question";
        String questionAnswer = "This is an answer";
        String[] radioButtonQuestions ={"this is question 1", 
-    		   "this is question 2", "this is question 3"};
+    		   "this is question 2", "this is question 3","this is a question 4"};
        
        questionWithOpenTextView questionTextView = 
     		   new questionWithOpenTextView(getApplicationContext(),
@@ -31,7 +31,8 @@ public class questionary extends Activity {
        questionWithRadioButtons questionRadioButtons = 
     		   new questionWithRadioButtons(getApplicationContext(),
     				   questionText, radioButtonQuestions);
-       mainLayout.addView(questionRadioButtons.inflator(questionText, radioButtonQuestions));
+       mainLayout.addView(questionRadioButtons.inflator(getApplicationContext(),
+    		   questionText, radioButtonQuestions));
     }
     
     
