@@ -26,17 +26,20 @@ public class questionary extends Activity {
         setContentView(R.layout.questionary_layout);
        mainLayout = (LinearLayout)findViewById(R.id.LinearLayout1);
        
-       
-       setQuestionWithOpenTextView();
-       questionWithRadioButtons();
-       questionWithCheckButtons();
-       setQuestionWithOpenTextView();
-       questionWithRadioButtons();
-       questionWithCheckButtons();
-       setQuestionWithOpenTextView();
-       questionWithRadioButtons();
-       questionWithCheckButtons();
-     
+       setQuestions();
+
+    }
+    public void setQuestions(){
+        setQuestionWithOpenTextView();
+        questionWithRadioButtons();
+        questionWithCheckButtons();
+        setQuestionWithOpenTextView();
+        questionWithRadioButtons();
+        questionWithCheckButtons();
+        setQuestionWithOpenTextView();
+        questionWithRadioButtons();
+        questionWithCheckButtons();
+      
     }
     public void setQuestionWithOpenTextView(){
     	 questionWithOpenTextView questionTextView = 
