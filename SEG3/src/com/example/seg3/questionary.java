@@ -30,6 +30,12 @@ public class questionary extends Activity {
        setQuestionWithOpenTextView();
        questionWithRadioButtons();
        questionWithCheckButtons();
+       setQuestionWithOpenTextView();
+       questionWithRadioButtons();
+       questionWithCheckButtons();
+       setQuestionWithOpenTextView();
+       questionWithRadioButtons();
+       questionWithCheckButtons();
      
     }
     public void setQuestionWithOpenTextView(){
