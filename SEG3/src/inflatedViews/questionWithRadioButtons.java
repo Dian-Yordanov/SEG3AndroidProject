@@ -79,11 +79,24 @@ public class questionWithRadioButtons extends LinearLayout {
 		AssetManager mngr = getContext().getAssets();
 		Typeface face = Typeface.createFromAsset(mngr,
 				"fonts/Roboto-Regular.ttf");
+		
+		
 
+		RadioButton[] rb = new RadioButton[radioButtonQuestions.length];
+		
+		
 		for (int i = 0; i < radioButtonQuestions.length; i++) {
-			RadioButton rb = new RadioButton(context);
-			rb.setText("this is radioButton" + i);
-			rg.addView(rb);
+			rb[i] = new RadioButton(context);
+			rb[i].setText("this is radioButton" + i, BufferType.SPANNABLE);
+			
+			Spannable s = (Spannable) rb[i].getText();
+			ForegroundColorSpan fcs = new ForegroundColorSpan(Color.BLACK);
+			rb[i].setTypeface(face);
+
+			s.setSpan(fcs, 0, rb[i].getText().length(),
+					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			
+			rg.addView(rb[i]);
 		}
 		return rg;
 
