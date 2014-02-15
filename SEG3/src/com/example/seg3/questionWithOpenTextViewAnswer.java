@@ -31,13 +31,25 @@ public class questionWithOpenTextViewAnswer extends LinearLayout{
 				R.layout.question_with_open_text_answer_layout, 
 				mainLayout,false);
 		
-		TextView textView0 = (TextView) inflatedView.findViewById(R.id.textViewForInflation);
-		textView0.setText(questionText);
-		
-		EditText editText0 = (EditText) inflatedView.findViewById(R.id.editTextForInflation);
-		editText0.setText(answer);
+		setQuestion(questionText);
+		setAnswer(answer);
 		
 		return inflatedView;
 		
 	}
+	
+	public static void setQuestion(String questionText){
+
+		TextView textView0 = (TextView) inflatedView.findViewById(
+				R.id.textViewForInflation);
+		textView0.setText(questionText);
+	}
+	public static void setAnswer(String answer){
+		EditText editText0 = (EditText) inflatedView.findViewById(
+				R.id.editTextForInflation);
+		editText0.setText(answer);
+		
+	}
+	
 }
+
