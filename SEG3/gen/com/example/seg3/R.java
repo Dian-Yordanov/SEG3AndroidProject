@@ -30,7 +30,8 @@ public final class R {
         public static final int LayoutForMiddle=0x7f080001;
         public static final int LinearLayout1=0x7f080000;
         public static final int LinearLayoutForCheckBoxes=0x7f080006;
-        public static final int action_settings=0x7f080013;
+        public static final int LinearLayoutForInflationWA=0x7f080013;
+        public static final int action_settings=0x7f080014;
         public static final int button1=0x7f080010;
         public static final int editText1=0x7f08000d;
         public static final int editText2=0x7f08000f;
