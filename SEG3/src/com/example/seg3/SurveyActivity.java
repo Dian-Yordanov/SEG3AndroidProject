@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class questionary extends Activity {
+public class SurveyActivity extends Activity {
 	private static LinearLayout mainLayout;
 	
 	private static String[] questionsData={
@@ -26,6 +26,7 @@ public class questionary extends Activity {
 	private static String[] checkButtonQuestions ={"this is a check button 1", 
 		   "this is a check button 2", "this is a check button 3"};
     
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -14,7 +14,7 @@ public class withAppointment extends Activity {
         setContentView(R.layout.with_appointment);
     }
     public void gotoQuestionaryView(View view) {
-  		Intent i = new Intent(withAppointment.this,questionary.class);
+  		Intent i = new Intent(withAppointment.this,SurveyActivity.class);
   		startActivity(i);
   	}
     
