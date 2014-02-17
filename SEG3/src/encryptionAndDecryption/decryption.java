@@ -11,8 +11,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
-import com.sun.xml.internal.org.jvnet.staxex.Base64Data;
+import android.util.Base64;
 
 public class decryption {
 	
@@ -84,6 +83,6 @@ public class decryption {
 		    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding", "SunJCE");
 		    SecretKeySpec key = new SecretKeySpec(encryptionKey.getBytes("UTF-8"), "AES");
 		    cipher.init(Cipher.DECRYPT_MODE, key,new IvParameterSpec(IV.getBytes("UTF-8")));
-		    return new String(cipher.doFinal(Base64.decode(cipherText)));
+		    return new String(cipher.doFinal(Base64.decode(cipherText, 0)));
 		  }
 }
