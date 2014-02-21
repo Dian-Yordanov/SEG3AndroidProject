@@ -1,8 +1,6 @@
 package com.example.seg3;
 
-import inflatedViews.questionWithOpenTextView;
-import inflatedViews.questionWithRadioButtons;
-import inflatedViews.questionWithCheckButtons;
+import inflatedViews.*;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -87,6 +85,13 @@ public class SurveyActivity extends Activity {
          mainLayout.addView(questionCheckButtons.inflator(getApplicationContext(),
       		   questionText, checkButtonQuestions));
     }
-    
+    public void  questionWithSpinner(){
+    	  questionWithSpinner questionWithSpinner = 
+        		   new  questionWithSpinner(getApplicationContext(),
+        				   questionText);
+           mainLayout.addView(questionWithSpinner.inflator(getApplicationContext(),
+        		   questionText));
+      }
+      
     
 }
