@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
@@ -62,7 +63,8 @@ public class questionWithSpinner  extends LinearLayout {
 	}
 
 	public void setAnswerTextView() {
-
+		Spinner spinner0 = (Spinner) inflatedViewSpinner
+				.findViewById(R.id.spinnerForInflation);
 	}
 
 }
