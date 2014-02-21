@@ -90,9 +90,9 @@ public class SurveyActivity extends Activity {
     public void  questionWithSpinner(){
     	  questionWithSpinner questionWithSpinner = 
         		   new  questionWithSpinner(getApplicationContext(),
-        				   questionText);
+        				   questionText, radioButtonQuestions);
            mainLayout.addView(questionWithSpinner.inflator(getApplicationContext(),
-        		   questionText));
+        		   questionText, radioButtonQuestions));
       }
       
     

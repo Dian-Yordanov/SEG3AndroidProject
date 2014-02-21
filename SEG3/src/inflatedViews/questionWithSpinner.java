@@ -24,12 +24,12 @@ public class questionWithSpinner  extends LinearLayout {
 	EditText answer;
 	LinearLayout mainLayout;
 
-	public questionWithSpinner(Context context, String questionString) {
+	public questionWithSpinner(Context context, String questionString, String[] spinnerQuestions) {
 		super(context);
 
 	}
 
-	public View inflator(Context context, String questionText) {
+	public View inflator(Context context, String questionText, String[] spinnerQuestions) {
 
 		questionWithSpinnerAnswer = LayoutInflater.from(getContext());
 
@@ -38,7 +38,7 @@ public class questionWithSpinner  extends LinearLayout {
 				false);
 
 		setQuestionTextView(questionText);
-		setAnswerTextView();
+		setAnswerTextView(context, spinnerQuestions);
 
 		return inflatedViewSpinner;
 
@@ -62,9 +62,12 @@ public class questionWithSpinner  extends LinearLayout {
 
 	}
 
-	public void setAnswerTextView() {
+	public void setAnswerTextView(Context context, String[] spinnerQuestions) {
 		Spinner spinner0 = (Spinner) inflatedViewSpinner
 				.findViewById(R.id.spinnerForInflation);
+		inflatedAdaptor inflatedadaptorForSpinner = new inflatedAdaptor(
+				context, android.R.layout.simple_dropdown_item_1line,spinnerQuestions);
+		spinner0.setAdapter(inflatedadaptorForSpinner);
 	}
 
 }
