@@ -33,11 +33,11 @@ public class questionWithSpinner  extends LinearLayout {
 		questionWithSpinnerAnswer = LayoutInflater.from(getContext());
 
 		inflatedViewSpinner = questionWithSpinnerAnswer.inflate(
-				R.layout.question_with_open_text_answer_layout, mainLayout,
+				R.layout.question_with_spinner_layout, mainLayout,
 				false);
 
 		setQuestionTextView(questionText);
-		;setAnswerTextView();
+		setAnswerTextView();
 
 		return inflatedViewSpinner;
 

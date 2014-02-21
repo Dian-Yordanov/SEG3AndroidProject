@@ -54,6 +54,7 @@ public class SurveyActivity extends Activity {
     	}
     }
     public void setQuestions(){
+    	questionWithSpinner();
         setQuestionWithOpenTextView();
         questionWithRadioButtons();
         questionWithCheckButtons();
@@ -63,6 +64,7 @@ public class SurveyActivity extends Activity {
         setQuestionWithOpenTextView();
         questionWithRadioButtons();
         questionWithCheckButtons();
+        questionWithSpinner();
       
     }
     public void setQuestionWithOpenTextView(){
