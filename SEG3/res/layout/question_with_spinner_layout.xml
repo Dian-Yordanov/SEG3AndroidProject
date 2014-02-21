@@ -17,9 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" 
-                android:textColor="#000000" 
-                android:background="@drawable/textfield_activated_holo_dark"
-                />
+        android:layout_marginRight="50dp"
+        android:background="@drawable/ab_transparent_light_holo"
+        android:textColor="#000000" />
 
 </LinearLayout>

@@ -21,9 +21,15 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int textfield_activated_holo_dark=0x7f020001;
-        public static final int whitebackground=0x7f020002;
+        public static final int ab_transparent_light_holo=0x7f020000;
+        public static final int dropdown_normal_holo_dark=0x7f020001;
+        public static final int dropdown_pressed_holo_dark=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int spinner_focused_holo_dark_am=0x7f020004;
+        public static final int spinner_normal=0x7f020005;
+        public static final int spinner_pressed_holo_dark_am=0x7f020006;
+        public static final int textfield_activated_holo_dark=0x7f020007;
+        public static final int whitebackground=0x7f020008;
     }
     public static final class id {
         public static final int HeaderLayout=0x7f080012;
@@ -99,5 +105,8 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int MooSpinnerItem=0x7f060003;
+        public static final int MooTextAppearanceSpinnerItem=0x7f060004;
+        public static final int MooTheme=0x7f060002;
     }
 }
