@@ -3,6 +3,7 @@ package inflatedViews;
 import com.example.seg3.R;
 
 import android.content.Context;
+import android.graphics.Color;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ public class inflatedAdaptor extends ArrayAdapter<String> {
 		final LayoutInflater inflater = LayoutInflater.from(getContext());
 		final View view = inflater.inflate(R.layout.dropdown_multiline_item,
 				someViewGroup, false);
+		
 
 		TextView textView0 = (TextView) view.findViewById(R.id.item);
 		textView0.setText(this.getItem(someInt));

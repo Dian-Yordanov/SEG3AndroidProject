@@ -66,7 +66,7 @@ public class questionWithSpinner  extends LinearLayout {
 		Spinner spinner0 = (Spinner) inflatedViewSpinner
 				.findViewById(R.id.spinnerForInflation);
 		inflatedAdaptor inflatedadaptorForSpinner = new inflatedAdaptor(
-				context, android.R.layout.simple_dropdown_item_1line,spinnerQuestions);
+				context, R.layout.simple_list_item_1,spinnerQuestions);
 		spinner0.setAdapter(inflatedadaptorForSpinner);
 	}
 
