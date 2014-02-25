@@ -65,6 +65,8 @@ public class SurveyActivity extends Activity {
         questionWithRadioButtons();
         questionWithCheckButtons();
         questionWithSpinner();
+        questionWithSeekBar();
+        questionWithSeekBar();
       
     }
     public void setQuestionWithOpenTextView(){
@@ -94,6 +96,11 @@ public class SurveyActivity extends Activity {
            mainLayout.addView(questionWithSpinner.inflator(getApplicationContext(),
         		   questionText, radioButtonQuestions));
       }
-      
+    public void questionWithSeekBar(){
+    	questionWithSeekBar questionWithSeekBar = 
+     		   new questionWithSeekBar(getApplicationContext(),
+     				   questionText);
+        mainLayout.addView(questionWithSeekBar.inflator(questionText));
+    }
     
 }
