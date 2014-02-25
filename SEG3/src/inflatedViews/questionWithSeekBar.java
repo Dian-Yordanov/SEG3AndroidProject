@@ -9,6 +9,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
@@ -21,12 +22,13 @@ public class questionWithSeekBar extends LinearLayout {
 	TextView question;
 	LinearLayout mainLayout;
 
-	public questionWithSeekBar(Context context, String questionString) {
+	public questionWithSeekBar(Context context, String questionString, 
+			int minPosition, int maxPosition) {
 		super(context);
 
 	}
 
-	public View inflator(String questionText) {
+	public View inflator(Context context, String questionText, int minPosition, int maxPosition) {
 
 		questionWithSeekBarAnswer = LayoutInflater.from(getContext());
 
@@ -35,7 +37,7 @@ public class questionWithSeekBar extends LinearLayout {
 				false);
 
 		setQuestionTextView(questionText);
-
+		setAnswerTextView(context, minPosition, maxPosition);
 		return inflatedViewSeekBar;
 
 	}
@@ -58,9 +60,32 @@ public class questionWithSeekBar extends LinearLayout {
 
 	}
 
-	public void setAnswerTextView() {
-	
+	public void setAnswerTextView(Context context,
+			int minPosition, int maxPosition) {
+		SeekBar sb = (SeekBar) inflatedViewSeekBar
+				.findViewById(R.id.seekBarForInflation);
+		final TextView seekBarValue = (TextView)findViewById(R.id.textViewToShowProgress); 
+		sb.setMax(minPosition);
+		
+		sb.setMax(maxPosition);
+		sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){ 
 
-	}
+			   @Override 
+			   public void onProgressChanged(SeekBar seekBar, int progress, 
+			     boolean fromUser) { 
+			    // TODO Auto-generated method stub 
+			    seekBarValue.setText(String.valueOf(progress)); 
+			   } 
 
+			   @Override 
+			   public void onStartTrackingTouch(SeekBar seekBar) { 
+			    // TODO Auto-generated method stub 
+			   } 
+
+			   @Override 
+			   public void onStopTrackingTouch(SeekBar seekBar) { 
+			    // TODO Auto-generated method stub 
+			   } 
+		}); 
+			   } 
 }
