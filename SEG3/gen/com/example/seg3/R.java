@@ -49,7 +49,7 @@ public final class R {
         public static final int linearLayoutForInflationSpinner=0x7f080013;
         public static final int mak=0x7f080008;
         public static final int radioGroup1=0x7f08000d;
-        public static final int seekBarForInflation=0x7f080011;
+        public static final int seekBarForInflation=0x7f080012;
         public static final int spinnerForInflation=0x7f080015;
         public static final int textView=0x7f080002;
         public static final int textView1=0x7f080006;
@@ -60,7 +60,7 @@ public final class R {
         public static final int textView3=0x7f08001b;
         public static final int textViewForInflation=0x7f08000e;
         public static final int textViewForInflationSpinner=0x7f080014;
-        public static final int textViewToShowProgress=0x7f080012;
+        public static final int textViewToShowProgress=0x7f080011;
         public static final int withAppointment=0x7f080003;
         public static final int withoutAppointment=0x7f080004;
     }

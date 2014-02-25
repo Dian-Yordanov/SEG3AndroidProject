@@ -6,10 +6,12 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
@@ -21,21 +23,26 @@ public class questionWithSeekBar extends LinearLayout {
 	public static LayoutInflater questionWithSeekBarAnswer;
 	TextView question;
 	LinearLayout mainLayout;
+	public static SeekBar sb;
 
-	public questionWithSeekBar(Context context, String questionString, 
+	public static TextView tv;
+	public static int progressInt =0;
+
+	public questionWithSeekBar(Context context, String questionString,
 			int minPosition, int maxPosition) {
 		super(context);
 
 	}
 
-	public View inflator(Context context, String questionText, int minPosition, int maxPosition) {
+	public View inflator(Context context, String questionText, int minPosition,
+			int maxPosition) {
 
 		questionWithSeekBarAnswer = LayoutInflater.from(getContext());
 
 		inflatedViewSeekBar = questionWithSeekBarAnswer.inflate(
-				R.layout.question_with_seek_bar, mainLayout,
-				false);
-
+				R.layout.question_with_seek_bar, mainLayout, false);
+		
+		
 		setQuestionTextView(questionText);
 		setAnswerTextView(context, minPosition, maxPosition);
 		return inflatedViewSeekBar;
@@ -62,30 +69,30 @@ public class questionWithSeekBar extends LinearLayout {
 
 	public void setAnswerTextView(Context context,
 			int minPosition, int maxPosition) {
-		SeekBar sb = (SeekBar) inflatedViewSeekBar
-				.findViewById(R.id.seekBarForInflation);
-		final TextView seekBarValue = (TextView)findViewById(R.id.textViewToShowProgress); 
-		sb.setMax(minPosition);
-		
+		SeekBar sb = (SeekBar) inflatedViewSeekBar.findViewById(R.id.seekBarForInflation);
+		tv = (TextView) inflatedViewSeekBar.findViewById(R.id.textViewToShowProgress);
 		sb.setMax(maxPosition);
-		sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){ 
-
-			   @Override 
-			   public void onProgressChanged(SeekBar seekBar, int progress, 
-			     boolean fromUser) { 
-			    // TODO Auto-generated method stub 
-			    seekBarValue.setText(String.valueOf(progress)); 
-			   } 
-
-			   @Override 
-			   public void onStartTrackingTouch(SeekBar seekBar) { 
-			    // TODO Auto-generated method stub 
-			   } 
-
-			   @Override 
-			   public void onStopTrackingTouch(SeekBar seekBar) { 
-			    // TODO Auto-generated method stub 
-			   } 
-		}); 
-			   } 
+		sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				// TODO Auto-generated method stub
+				Log.v("",""+progress);
+				progressInt = progress;
+				tv.setText("" + progress);
+			}
+		});		
+	}
 }

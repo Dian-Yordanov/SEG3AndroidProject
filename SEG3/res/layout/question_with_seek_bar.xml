@@ -11,6 +11,15 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:textSize="20dp" />
+    
+    <TextView
+        android:id="@+id/textViewToShowProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="20dp"
+        android:text="323"/>
 
     <SeekBar
         android:id="@+id/seekBarForInflation"
@@ -19,10 +28,5 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp" />
 
-    <TextView
-        android:id="@+id/textViewToShowProgress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
 </LinearLayout>
