@@ -25,8 +25,7 @@ public class questionWithSeekBar extends LinearLayout {
 	LinearLayout mainLayout;
 	public static SeekBar sb;
 
-	public static TextView tv;
-	public static int progressInt =0;
+	public static int progressInt = 0;
 
 	public questionWithSeekBar(Context context, String questionString,
 			int minPosition, int maxPosition) {
@@ -41,8 +40,7 @@ public class questionWithSeekBar extends LinearLayout {
 
 		inflatedViewSeekBar = questionWithSeekBarAnswer.inflate(
 				R.layout.question_with_seek_bar, mainLayout, false);
-		
-		
+
 		setQuestionTextView(questionText);
 		setAnswerTextView(context, minPosition, maxPosition);
 		return inflatedViewSeekBar;
@@ -67,32 +65,34 @@ public class questionWithSeekBar extends LinearLayout {
 
 	}
 
-	public void setAnswerTextView(Context context,
-			int minPosition, int maxPosition) {
-		SeekBar sb = (SeekBar) inflatedViewSeekBar.findViewById(R.id.seekBarForInflation);
-		tv = (TextView) inflatedViewSeekBar.findViewById(R.id.textViewToShowProgress);
+	public void setAnswerTextView(Context context, int minPosition,
+			int maxPosition) {
+		SeekBar sb = (SeekBar) inflatedViewSeekBar
+				.findViewById(R.id.seekBarForInflation);
+		final TextView tv = (TextView) inflatedViewSeekBar
+				.findViewById(R.id.textViewToShowProgress);
 		sb.setMax(maxPosition);
 		sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
-				Log.v("",""+progress);
+				Log.v("", "" + progress);
 				progressInt = progress;
 				tv.setText("" + progress);
 			}
-		});		
+		});
 	}
 }
