@@ -1,21 +1,14 @@
 package inflatedViews;
 
 import com.example.seg3.R;
-import com.example.seg3.R.id;
-import com.example.seg3.R.layout;
-
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.Spannable;
-import android.text.SpannedString;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;

@@ -3,26 +3,23 @@ package com.example.seg3;
 import inflatedViews.*;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
 import android.widget.LinearLayout;
 
 public class SurveyActivity extends Activity {
 	private static LinearLayout mainLayout;
 
-	private static String[] questionsData = { "" };
-
-	private static String[] questions = new String[10];
 	private static String questionText = "This is a question";
-	private static String questionAnswer = "This is an answer";
 	private static String[] radioButtonQuestions = { "this is question 1",
 			"this is question 2", "this is question 3", "this is a question 4" };
 	private static String[] checkButtonQuestions = {
 			"this is a check button 1", "this is a check button 2",
 			"this is a check button 3" };
-	private static String[] questionWithSeekBarBoundaries = { "0", "100" };
+	private static String[] spinnerQuestions = {
+		"this is a check button 1", "this is a check button 2",
+		"this is a check button 3", "this is a check button 4",
+		"this is a check button 5" };
+	private static String[] questionWithSeekBarBoundaries = { "0", "1000" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,16 +90,16 @@ public class SurveyActivity extends Activity {
 
 	public void questionWithCheckButtons() {
 		questionWithCheckButtons questionCheckButtons = new questionWithCheckButtons(
-				getApplicationContext(), questionText, radioButtonQuestions);
+				getApplicationContext(), questionText, checkButtonQuestions);
 		mainLayout.addView(questionCheckButtons.inflator(
 				getApplicationContext(), questionText, checkButtonQuestions));
 	}
 
 	public void questionWithSpinner() {
 		questionWithSpinner questionWithSpinner = new questionWithSpinner(
-				getApplicationContext(), questionText, radioButtonQuestions);
+				getApplicationContext(), questionText, spinnerQuestions);
 		mainLayout.addView(questionWithSpinner.inflator(
-				getApplicationContext(), questionText, radioButtonQuestions));
+				getApplicationContext(), questionText, spinnerQuestions));
 	}
 
 	public void questionWithSeekBar() {

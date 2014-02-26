@@ -11,9 +11,7 @@ public class withoutAppointment extends Activity {
 	private static LinearLayout layoutForInflationWA;
 	
 	
-	private static String[] questions = new String[10];
 	private static String questionText ="This is a question";
-	private static String questionAnswer = "This is an answer";
 	private static String[] radioButtonQuestions ={"this is question 1", 
  		   "this is question 2", "this is question 3","this is a question 4"};
 	private static String[] checkButtonQuestions ={"this is a check button 1", 
