@@ -71,6 +71,7 @@ public class questionWithSeekBar extends LinearLayout {
 				.findViewById(R.id.seekBarForInflation);
 		final TextView tv = (TextView) inflatedViewSeekBar
 				.findViewById(R.id.textViewToShowProgress);
+		tv.setTextColor(Color.BLACK);
 		sb.setMax(maxPosition);
 		sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
@@ -91,7 +92,7 @@ public class questionWithSeekBar extends LinearLayout {
 				// TODO Auto-generated method stub
 				Log.v("", "" + progress);
 				progressInt = progress;
-				tv.setText("" + progress);
+				tv.setText(Integer.toString(progress));
 			}
 		});
 	}
