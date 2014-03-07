@@ -1,9 +1,11 @@
 package com.example.seg3;
 
+import jsonReaderAndWriter.JsonReader;
 import inflatedViews.*;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 public class SurveyActivity extends Activity {
@@ -57,60 +59,54 @@ public class SurveyActivity extends Activity {
 
 		}
 	}
+	public void questionBuilder(){
+		
+	}
 
-	public void setQuestions() {
-		questionWithSpinner();
-		setQuestionWithOpenTextView();
-		questionWithRadioButtons();
-		questionWithCheckButtons();
-		setQuestionWithOpenTextView();
-		questionWithRadioButtons();
-		questionWithCheckButtons();
-		setQuestionWithOpenTextView();
-		questionWithRadioButtons();
-		questionWithCheckButtons();
-		questionWithSpinner();
-		questionWithSeekBar();
-		questionWithSeekBar();
+	public void setQuestions() {		
+    	
+		JsonReader jr = new JsonReader();
+		
+		Log.v("number","hey "+JsonReader.number);
+		Log.v("array",JsonReader.returnedJsonArray.toString());		
 
 	}
 
-	public void setQuestionWithOpenTextView() {
+	public void setQuestionWithOpenTextView(String questionText, String[] answerText) {
 		questionWithOpenTextView questionTextView = new questionWithOpenTextView(
 				getApplicationContext(), questionText);
 		mainLayout.addView(questionTextView.inflator(questionText));
 	}
 
-	public void questionWithRadioButtons() {
+	public void questionWithRadioButtons(String questionText, String[] answerText) {
 		questionWithRadioButtons questionRadioButtons = new questionWithRadioButtons(
-				getApplicationContext(), questionText, radioButtonQuestions);
+				getApplicationContext(), questionText, answerText);
 		mainLayout.addView(questionRadioButtons.inflator(
-				getApplicationContext(), questionText, radioButtonQuestions));
+				getApplicationContext(), questionText, answerText));
 	}
 
-	public void questionWithCheckButtons() {
+	public void questionWithCheckButtons(String questionText, String[] answerText) {
 		questionWithCheckButtons questionCheckButtons = new questionWithCheckButtons(
-				getApplicationContext(), questionText, checkButtonQuestions);
+				getApplicationContext(), questionText, answerText);
 		mainLayout.addView(questionCheckButtons.inflator(
-				getApplicationContext(), questionText, checkButtonQuestions));
+				getApplicationContext(), questionText, answerText));
 	}
 
-	public void questionWithSpinner() {
+	public void questionWithSpinner(String questionText, String[] answerText) {
 		questionWithSpinner questionWithSpinner = new questionWithSpinner(
-				getApplicationContext(), questionText, spinnerQuestions);
+				getApplicationContext(), questionText, answerText);
 		mainLayout.addView(questionWithSpinner.inflator(
-				getApplicationContext(), questionText, spinnerQuestions));
+				getApplicationContext(), questionText, answerText));
 	}
 
-	public void questionWithSeekBar() {
+	public void questionWithSeekBar(String questionText, String[] answerText) {
 		questionWithSeekBar questionWithSeekBar = new questionWithSeekBar(
 				getApplicationContext(), questionText,
-				Integer.parseInt(questionWithSeekBarBoundaries[0]),
-				Integer.parseInt(questionWithSeekBarBoundaries[1]));
+				Integer.parseInt(answerText[0]),
+				Integer.parseInt(answerText[1]));
 		mainLayout.addView(questionWithSeekBar.inflator(
 				getApplicationContext(), questionText,
-				Integer.parseInt(questionWithSeekBarBoundaries[0]),
-				Integer.parseInt(questionWithSeekBarBoundaries[1])));
+				Integer.parseInt(answerText[0]),
+				Integer.parseInt(answerText[1])));
 	}
-
 }

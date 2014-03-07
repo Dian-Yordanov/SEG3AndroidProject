@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -88,8 +87,7 @@ public class questionWithSeekBar extends LinearLayout {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
-				// TODO Auto-generated method stub
-				Log.v("", "" + progress);
+				// TODO Auto-generated method stub				
 				progressInt = progress;
 				tv.setText(Integer.toString(progress));
 			}

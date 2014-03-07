@@ -28,6 +28,7 @@ public class withoutAppointment extends Activity {
         
     }
     public void setQuestions(){
+
         setQuestionWithOpenTextView();
         questionWithRadioButtons();
         questionWithCheckButtons();
