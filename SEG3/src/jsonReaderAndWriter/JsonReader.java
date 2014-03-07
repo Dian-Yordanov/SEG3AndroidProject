@@ -1,4 +1,5 @@
 package jsonReaderAndWriter;
+
 /**
  * Created by Xelnect on 2/19/14.
  */
@@ -15,63 +16,78 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class JsonReader {
+	public static int number = 0;
+	public static ArrayList<String> returnedJsonArray = new ArrayList<String>();
 
-    public static void main(String[] args) {
-        jsonObjectExtractor(jsonFileReader());
-    }
+	public static void main(String[] args) {
+		jsonObjectExtractor(jsonFileReader());
+	}
 
-    public static JSONObject jsonFileReader() {
-        JSONParser parser = new JSONParser();
-        Object objToBeParsedFromFile = null;
-        JSONObject jsonObjectFromObj = null;
+	public static JSONObject jsonFileReader() {
+		JSONParser parser = new JSONParser();
+		Object objToBeParsedFromFile = null;
+		JSONObject jsonObjectFromObj = null;
+		
+		try {
+			objToBeParsedFromFile = parser.parse(	"{\"question number 2\":{\"answerText\":[\"your mother\",\"your father\",\"your uncle\",\"your aunt\"],\"questionText\":\"which memebers of your family have heart problems?\",\"questionType\":\"check boxes\"},\"question number 1\":{\"answerText\":[\"yes\",\"no\"],\"questionText\":\"do you have some problems with your hearth?\",\"questionType\":\"radio button\"}}");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 
-        try {
-            objToBeParsedFromFile = parser.parse(new FileReader("C:\\Users\\Xelnect\\Desktop\\JSonWritten.json"));
-            jsonObjectFromObj = (JSONObject) objToBeParsedFromFile;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return jsonObjectFromObj;
-    }
+//		try {
+//			objToBeParsedFromFile = parser.parse();
+//			//		new FileReader("C:\\Users\\Xelnect\\Desktop\\JSonWritten.json"));
+//				
+//			jsonObjectFromObj = (JSONObject) objToBeParsedFromFile;
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+		return jsonObjectFromObj;
+	}
 
-    public static void jsonObjectExtractor(JSONObject objToBeParsedFromFile) {
+	public static ArrayList<String> jsonObjectExtractor(
+			JSONObject objToBeParsedFromFile) {
 
-        JSONObject questionNumber = null;
-        for(int i=0;i<objToBeParsedFromFile.size();i++){
-        String questionNumberIndex = "question number ".concat(Integer.toString(i+1));
+		JSONObject questionNumber = null;
+		for (int i = 0; i < objToBeParsedFromFile.size(); i++) {
+			String questionNumberIndex = "question number ".concat(Integer
+					.toString(i + 1));
 
-        questionNumber = (JSONObject) objToBeParsedFromFile.get(questionNumberIndex);
-        System.out.println(questionNumber);
+			questionNumber = (JSONObject) objToBeParsedFromFile
+					.get(questionNumberIndex);
+			System.out.println(questionNumber);
 
-        readQuestionType(questionNumber);
-        readQuestionText(questionNumber);
-        readAnswerText(questionNumber);
+			returnedJsonArray.add(number, readQuestionType(questionNumber));
+			returnedJsonArray.add(number, readQuestionText(questionNumber));
+			returnedJsonArray.add(number, readAnswerText(questionNumber)
+					.toString());			
+		}
+		number++;
+		return returnedJsonArray;
 
-        System.out.println( readQuestionType(questionNumber));
-        System.out.println(readQuestionText(questionNumber));
-        System.out.println(readAnswerText(questionNumber));
-        }
+	}
 
-    }
-    public static ArrayList readAnswerText(JSONObject obj) {
-        JSONArray answerTextJsonArray = (JSONArray) obj.get("answerText");
-        ArrayList answerTextArray = new ArrayList();
-        Iterator<String> iterator = answerTextJsonArray.iterator();
-        while (iterator.hasNext()) {
-            answerTextArray.add(iterator.next());
-        }
-        return answerTextArray;
-    }
-    public static String readQuestionText(JSONObject obj) {
-        String questionText = (String) obj.get("questionText");
-        return questionText;
-    }
-    public static String readQuestionType(JSONObject obj) {
-        String questionType = (String) obj.get("questionType");
-        return questionType;
-    }
+	public static ArrayList readAnswerText(JSONObject obj) {
+		JSONArray answerTextJsonArray = (JSONArray) obj.get("answerText");
+		ArrayList answerTextArray = new ArrayList();
+		Iterator<String> iterator = answerTextJsonArray.iterator();
+		while (iterator.hasNext()) {
+			answerTextArray.add(iterator.next());
+		}
+		return answerTextArray;
+	}
+
+	public static String readQuestionText(JSONObject obj) {
+		String questionText = (String) obj.get("questionText");
+		return questionText;
+	}
+
+	public static String readQuestionType(JSONObject obj) {
+		String questionType = (String) obj.get("questionType");
+		return questionType;
+	}
 }
