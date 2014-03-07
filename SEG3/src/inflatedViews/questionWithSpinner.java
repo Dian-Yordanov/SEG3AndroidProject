@@ -1,5 +1,7 @@
 package inflatedViews;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Color;
@@ -24,12 +26,12 @@ public class questionWithSpinner  extends LinearLayout {
 	EditText answer;
 	LinearLayout mainLayout;
 
-	public questionWithSpinner(Context context, String questionString, String[] spinnerQuestions) {
+	public questionWithSpinner(Context context, String questionString, ArrayList<String> spinnerQuestions) {
 		super(context);
 
 	}
 
-	public View inflator(Context context, String questionText, String[] spinnerQuestions) {
+	public View inflator(Context context, String questionText, ArrayList<String> spinnerQuestions) {
 
 		questionWithSpinnerAnswer = LayoutInflater.from(getContext());
 
@@ -62,7 +64,7 @@ public class questionWithSpinner  extends LinearLayout {
 
 	}
 
-	public void setAnswerTextView(Context context, String[] spinnerQuestions) {
+	public void setAnswerTextView(Context context, ArrayList<String> spinnerQuestions) {
 		Spinner spinner0 = (Spinner) inflatedViewSpinner
 				.findViewById(R.id.spinnerForInflation);
 		inflatedAdaptor inflatedadaptorForSpinner = new inflatedAdaptor(

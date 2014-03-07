@@ -1,6 +1,6 @@
 package com.example.seg3;
 import android.util.Log;
-import jsonReaderAndWriter.JsonReader;
+import jsonReaderAndWriter.jsonReader;
 
 public class dataReciever {
 	

@@ -1,5 +1,7 @@
 package inflatedViews;
 
+import java.util.ArrayList;
+
 import com.example.seg3.R;
 
 import android.content.Context;
@@ -15,7 +17,7 @@ public class inflatedAdaptor extends ArrayAdapter<String> {
 	public View view;
 
 	public inflatedAdaptor(Context context,
-			int textViewResourceId, String[] countryNames) {
+			int textViewResourceId, ArrayList<String> countryNames) {
 		super(context, textViewResourceId, countryNames);
 
 	}

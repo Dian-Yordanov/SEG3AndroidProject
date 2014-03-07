@@ -1,5 +1,7 @@
 package inflatedViews;
 
+import java.util.ArrayList;
+
 import com.example.seg3.R;
 
 import android.content.Context;
@@ -22,12 +24,12 @@ public class questionWithCheckButtons extends LinearLayout {
 	public static LinearLayout mainLayout;
 
 	public questionWithCheckButtons(Context context, String questionString,
-			String[] checkBoxQuestions) {
+			ArrayList<String> checkBoxQuestions) {
 		super(context);
 	}
 
 	public View inflator(Context context, String questionText,
-			String[] checkBoxQuestions) {
+			ArrayList<String> checkBoxQuestions) {
 
 		questionWithCheckBoxAnswers = LayoutInflater.from(getContext());
 
@@ -67,7 +69,7 @@ public class questionWithCheckButtons extends LinearLayout {
 	}
 
 	public void setAnswerCheckButtons(Context context,
-			String[] checkButtonQuestions) {
+			ArrayList<String> checkButtonQuestions) {
 	
 		AssetManager mngr = getContext().getAssets();
 		Typeface face = Typeface.createFromAsset(mngr,
@@ -78,10 +80,10 @@ public class questionWithCheckButtons extends LinearLayout {
 				.findViewById(R.id.LinearLayoutForCheckBoxes);
 		
 
-		CheckBox[] cb = new CheckBox[checkButtonQuestions.length];
+		CheckBox[] cb = new CheckBox[checkButtonQuestions.size()];
 		
 		
-		for (int i = 0; i < checkButtonQuestions.length; i++) {
+		for (int i = 0; i < checkButtonQuestions.size(); i++) {
 			cb[i] = new CheckBox(context);
 			cb[i].setText("this is checkBox" + i, BufferType.SPANNABLE);
 			

@@ -1,6 +1,8 @@
 package com.example.seg3;
 
-import jsonReaderAndWriter.JsonReader;
+import java.util.ArrayList;
+
+import jsonReaderAndWriter.jsonReader;
 import inflatedViews.*;
 
 import android.app.Activity;
@@ -60,53 +62,55 @@ public class SurveyActivity extends Activity {
 		}
 	}
 	public void questionBuilder(){
-		
+				
 	}
 
 	public void setQuestions() {		
     	
-		JsonReader jr = new JsonReader();
+		jsonReader jr = new jsonReader();
 		
-		Log.v("number","hey "+JsonReader.number);
-		Log.v("array",JsonReader.returnedJsonArray.toString());		
+		Log.v("number","hey "+jsonReader.number);
+		Log.v("array",jsonReader.returnedJsonArray.toString());		
+
 
 	}
 
-	public void setQuestionWithOpenTextView(String questionText, String[] answerText) {
+	public void setQuestionWithOpenTextView(String questionText) {
 		questionWithOpenTextView questionTextView = new questionWithOpenTextView(
 				getApplicationContext(), questionText);
 		mainLayout.addView(questionTextView.inflator(questionText));
 	}
 
-	public void questionWithRadioButtons(String questionText, String[] answerText) {
+	public void questionWithRadioButtons(String questionText, ArrayList<String> answerText) {
 		questionWithRadioButtons questionRadioButtons = new questionWithRadioButtons(
 				getApplicationContext(), questionText, answerText);
 		mainLayout.addView(questionRadioButtons.inflator(
 				getApplicationContext(), questionText, answerText));
+		
 	}
 
-	public void questionWithCheckButtons(String questionText, String[] answerText) {
+	public void questionWithCheckButtons(String questionText, ArrayList<String> answerText) {
 		questionWithCheckButtons questionCheckButtons = new questionWithCheckButtons(
 				getApplicationContext(), questionText, answerText);
 		mainLayout.addView(questionCheckButtons.inflator(
 				getApplicationContext(), questionText, answerText));
 	}
 
-	public void questionWithSpinner(String questionText, String[] answerText) {
+	public void questionWithSpinner(String questionText, ArrayList<String> answerText) {
 		questionWithSpinner questionWithSpinner = new questionWithSpinner(
 				getApplicationContext(), questionText, answerText);
 		mainLayout.addView(questionWithSpinner.inflator(
 				getApplicationContext(), questionText, answerText));
 	}
 
-	public void questionWithSeekBar(String questionText, String[] answerText) {
+	public void questionWithSeekBar(String questionText, ArrayList<String> answerText) {
 		questionWithSeekBar questionWithSeekBar = new questionWithSeekBar(
 				getApplicationContext(), questionText,
-				Integer.parseInt(answerText[0]),
-				Integer.parseInt(answerText[1]));
+				Integer.parseInt(answerText.get(0)),
+				Integer.parseInt(answerText.get(1)));
 		mainLayout.addView(questionWithSeekBar.inflator(
 				getApplicationContext(), questionText,
-				Integer.parseInt(answerText[0]),
-				Integer.parseInt(answerText[1])));
+				Integer.parseInt(answerText.get(0)),
+				Integer.parseInt(answerText.get(1))));
 	}
 }

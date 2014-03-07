@@ -15,14 +15,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.example.seg3.SurveyActivity;
+
 import android.util.Log;
 
-public class JsonReader {
+public class jsonReader {
 	public static int number = 0;
-	public static ArrayList<String> returnedJsonArray = new ArrayList<String>();
+	public static ArrayList returnedJsonArray = new ArrayList();
 	public static String jsonString = "{\"question number 2\":{\"answerText\":[\"your mother\",\"your father\",\"your uncle\",\"your aunt\"],\"questionText\":\"which memebers of your family have heart problems?\",\"questionType\":\"check boxes\"},\"question number 1\":{\"answerText\":[\"yes\",\"no\"],\"questionText\":\"do you have some problems with your hearth?\",\"questionType\":\"radio button\"}}";
 	
-	public JsonReader() {
+	public jsonReader() {
 		jsonObjectExtractor(jsonFileReader());
 	}
 
@@ -65,12 +67,15 @@ public class JsonReader {
 
 			questionNumber = (JSONObject) objToBeParsedFromFile
 					.get(questionNumberIndex);
-			System.out.println(questionNumber);
-
-			returnedJsonArray.add(readQuestionType(questionNumber));
-			returnedJsonArray.add(readQuestionText(questionNumber));
-			returnedJsonArray.add(readAnswerText(questionNumber)
-					.toString());
+			
+			returnedJsonArray.add(number,readQuestionType(questionNumber));
+			returnedJsonArray.add(number,readQuestionText(questionNumber));
+			returnedJsonArray.addAll(number,readAnswerText(questionNumber));
+			
+			//SurveyActivity.setQuestionWithOpenTextView(readQuestionText(questionNumber),readAnswerText(questionNumber));
+			
+			
+			
 			number++;
 		}
 		

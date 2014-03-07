@@ -24,7 +24,6 @@ public class decryption {
 	public void decryptio()  throws Exception {
 		String outputFromFile = readFromFile();
 		if(outputFromFile.equals("EmptyFileException")){
-			System.out.println("You have no text");
 			writingToFile("EmptyFileException");
 		}
 		else if(!outputFromFile.equals("EmptyFileException")){
@@ -46,9 +45,6 @@ public class decryption {
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(content);
 			bw.close();
-
-			System.out.println("Done");
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -63,7 +59,6 @@ public class decryption {
 					"C:/Users/Xelnect/Desktop/encrypted.txt"));
 			while ((input = br.readLine()) != null) {
 				inputString += input;
-				System.out.println(input);
 			}
 
 		} catch (IOException e) {

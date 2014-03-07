@@ -1,5 +1,7 @@
 package inflatedViews;
 
+import java.util.ArrayList;
+
 import com.example.seg3.R;
 
 import android.content.Context;
@@ -23,12 +25,12 @@ public class questionWithRadioButtons extends LinearLayout {
 	public static LinearLayout mainLayout;
 
 	public questionWithRadioButtons(Context context, String questionString,
-			String[] radioButtonQuestions) {
+			ArrayList<String> radioButtonQuestions) {
 		super(context);
 	}
 
 	public View inflator(Context context, String questionText,
-			String[] radioButtonQuestions) {
+			ArrayList<String> radioButtonQuestions) {
 
 		questionWithRadioButtonsAnswers = LayoutInflater.from(getContext());
 
@@ -69,7 +71,7 @@ public class questionWithRadioButtons extends LinearLayout {
 	}
 
 	public RadioGroup setAnswerRadioButtons(Context context,
-			String[] radioButtonQuestions) {
+			ArrayList<String> radioButtonQuestions) {
 		
 		RadioGroup rg = new RadioGroup(context);
 
@@ -79,10 +81,10 @@ public class questionWithRadioButtons extends LinearLayout {
 		
 		
 
-		RadioButton[] rb = new RadioButton[radioButtonQuestions.length];
+		RadioButton[] rb = new RadioButton[radioButtonQuestions.size()];
 		
 		
-		for (int i = 0; i < radioButtonQuestions.length; i++) {
+		for (int i = 0; i < radioButtonQuestions.size(); i++) {
 			rb[i] = new RadioButton(context);
 			rb[i].setText("this is radioButton" + i, BufferType.SPANNABLE);
 			
